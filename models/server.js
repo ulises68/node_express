@@ -3,7 +3,7 @@ const cors = require('cors');
 class Server {
     constructor() {
         this.app = express();
-        this.port = process.env.PORT;
+        this.port = process.env.PORT || 3000;
         this.usuarioPath= '/api/usuarios';
 
         // middleware
@@ -63,7 +63,7 @@ class Server {
     // listen
 
     listen() {
-        this.app.listen(this.port, () => {
+        this.app.listen(this.port, '0.0.0.0', () => {
             console.log("Servidor corriendo en puerto", this.port)
         });
     }
